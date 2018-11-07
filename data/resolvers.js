@@ -3,6 +3,7 @@ const faker = require('faker');
 
 var resolvers = {
     Query: {
+        //Resolvers for the type user
         user: (parent, { id }) => ({
             id: scuid(), 
             first_name: faker.name.firstName(),
@@ -12,6 +13,7 @@ var resolvers = {
             role: faker.lorem.word()
         }),
 
+        //Resolvers for the type task
         task: (parent, { id }) => ({
             id: scuid(),
             user_id: scuid(),
@@ -33,4 +35,6 @@ var resolvers = {
         })
     }
 };
+
+//export the resolvers object
 module.exports = resolvers;
